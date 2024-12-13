@@ -158,7 +158,10 @@ class AlexaShoppingList:
 
     def _handle_login_password_page(self):
         self.driver.find_element(By.ID, 'ap_password').send_keys(self.password)
-        self.driver.find_element(By.NAME, 'rememberMe').click()
+        try:
+            self.driver.find_element(By.NAME, 'rememberMe').click()
+        except:
+            pass
         self._login_submit_button()
 
 
